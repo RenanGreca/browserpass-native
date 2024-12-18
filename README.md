@@ -37,6 +37,21 @@ The following operating systems provide a browserpass package that can be instal
 
 Once the package is installed, **refer to the section [Configure browsers](#configure-browsers)**.
 
+#### Additional instructions for macOS
+
+1.  Install [Homebrew](https://brew.sh/) if you don't have it already.
+2.  Run `brew tap amar1729/formulae` to add the tap.
+3.  Run `brew install browserpass` to install the package.
+5.  Run the following command to add Homebrew's path to your systemctl path, allowing GUI applications to access tools installed via Homebrew. You must reboot the system and restart any web browser you wish to use for this to take effect.
+```sh
+sudo launchctl config user path "$(brew --prefix)/bin:${PATH}"
+```
+4.  Run the following command for each browser you want to use with browserpass:
+```sh
+PREFIX='/opt/homebrew/opt/browserpass' make hosts-<browser>-user -f '/opt/homebrew/opt/browserpass/lib/browserpass/Makefile'
+```
+If the above throws an error, you may need to replace the `Makefile` under `/opt/homebrew/opt/browserpass/lib/browserpass/` with the latest version from this repository.
+
 If your OS is not listed above, proceed with the manual installation steps below.
 
 ### Install manually

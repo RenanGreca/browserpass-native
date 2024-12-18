@@ -268,11 +268,11 @@ hosts-edge-user:
 	    ln -sfv "$(LIB_DIR)/browserpass/hosts/chromium/$(APP_ID).json" "$(XDG_CONFIG_HOME)/microsoft-edge/NativeMessagingHosts/$(APP_ID).json"; \
 	    [ -e "$(XDG_CONFIG_HOME)/microsoft-edge/NativeMessagingHosts/$(APP_ID).json" ] || echo "Error: the symlink points to a non-existent location" >&2; \
 	    ;; \
-	# Darwin) \
-	#     mkdir -p "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/"; \
-	#     ln -sfv "$(LIB_DIR)/browserpass/hosts/chromium/$(APP_ID).json" "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/$(APP_ID).json"; \
-	#     [ -e "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/$(APP_ID).json" ] || echo "Error: the symlink points to a non-existent location" >&2; \
-	#     ;; \
+	Darwin) \
+	    mkdir -p "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/"; \
+	    ln -sfv "$(LIB_DIR)/browserpass/hosts/chromium/$(APP_ID).json" "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/$(APP_ID).json"; \
+	    [ -e "${HOME}/Library/Application Support/Google/Chrome/NativeMessagingHosts/$(APP_ID).json" ] || echo "Error: the symlink points to a non-existent location" >&2; \
+	    ;; \
 	*) \
 	    echo "The operating system $(OS) is not supported"; \
 	    exit 1; \
